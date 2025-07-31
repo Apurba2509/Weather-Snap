@@ -81,16 +81,6 @@ npm run preview
 
 ---
 
-## 📸 Screenshot
-
-You can include a screenshot of the app here for visual reference. Example:
-
-```
-./public/preview.png
-```
-
----
-
 ## 🌐 API Reference
 
 * [OpenWeatherMap API](https://openweathermap.org/current)
