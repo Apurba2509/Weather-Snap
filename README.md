@@ -2,7 +2,7 @@
 
 **Weather Snap** is a sleek and modern weather app built with **React**, **Tailwind CSS**, and **Vite**. It allows you to get real-time weather updates for any city in the world using the **OpenWeatherMap API**.
 
-![Weather Snap UI](./preview.png) <!-- Optional: Add a screenshot if you like -->
+![Weather Snap UI](preview.png) <!-- Optional: Add a screenshot if you like -->
 
 ---
 
