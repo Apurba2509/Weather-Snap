@@ -119,9 +119,9 @@ export default function App() {
         <div className="flex-1 flex flex-col justify-between p-4 md:p-6 gap-6">
 
           {/* Header / Search */}
-          <header className="flex flex-col gap-6">
+          <header className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-3xl md:text-5xl font-extrabold tracking-tighter drop-shadow-md">🌍 Weather Snap</span>
+              <span className="text-2xl md:text-4xl font-extrabold tracking-tighter drop-shadow-md whitespace-nowrap">🌍 Weather Snap</span>
             </div>
 
             <div className="flex gap-2">
