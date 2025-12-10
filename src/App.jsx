@@ -11,11 +11,14 @@ export default function App() {
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [bgGradient, setBgGradient] = useState('from-blue-900 via-blue-800 to-indigo-900');
+  const [bgGradient, setBgGradient] = useState('from-teal-800 via-emerald-800 to-slate-900');
 
   // Dynamic Background based on weather
   useEffect(() => {
-    if (!weather) return;
+    if (!weather) {
+      setBgGradient('from-teal-800 via-emerald-800 to-slate-900');
+      return;
+    }
     const main = weather.weather[0].main;
     const isNight = weather.weather[0].icon.includes('n');
 
@@ -33,6 +36,13 @@ export default function App() {
       setBgGradient('from-gray-700 via-gray-800 to-gray-900');
     }
   }, [weather]);
+
+  const resetToHome = () => {
+    setWeather(null);
+    setForecast(null);
+    setCity('');
+    setBgGradient('from-teal-800 via-emerald-800 to-slate-900');
+  };
 
   const fetchWeather = async (queryCity = city) => {
     if (!queryCity) return;
@@ -110,7 +120,9 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-1000 ease-in-out bg-gradient-to-br ${bgGradient} flex items-center justify-center p-4 md:p-8 font-sans text-white overflow-y-auto`}>
+    <div
+      className={`min-h-screen transition-all duration-1000 ease-in-out bg-gradient-to-br ${bgGradient} ${!weather ? 'animate-gradient' : ''} flex items-center justify-center p-4 md:p-8 font-sans text-white overflow-y-auto`}
+    >
 
       {/* Glassmorphism Container */}
       <div className="relative w-full max-w-4xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_0_rgba(31,38,135,0.37)] rounded-[2.5rem] p-4 md:p-6 flex flex-col md:flex-row md:min-h-[500px]">
@@ -121,7 +133,7 @@ export default function App() {
           {/* Header / Search */}
           <header className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <span className="text-2xl md:text-4xl font-extrabold tracking-tighter drop-shadow-md whitespace-nowrap">🌍 Weather Snap</span>
+              <span onClick={resetToHome} className="text-2xl md:text-4xl font-bold tracking-tighter drop-shadow-md whitespace-nowrap cursor-pointer hover:opacity-80 transition-opacity">🌍 Weather Snap</span>
             </div>
 
             <div className="flex gap-2">
@@ -275,7 +287,7 @@ function HighlightCard({ icon: Icon, title, value }) {
       </div>
       <div className="min-w-0 flex-1">
         <p className="text-[10px] text-white/50 uppercase tracking-wider truncate">{title}</p>
-        <p className="text-sm md:text-base font-semibold leading-tight break-words">{value}</p>
+        <p className="text-sm md:text-base font-medium leading-tight break-words">{value}</p>
       </div>
     </div>
   )
