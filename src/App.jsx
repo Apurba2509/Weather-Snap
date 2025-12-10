@@ -269,13 +269,13 @@ export default function App() {
 
 function HighlightCard({ icon: Icon, title, value }) {
   return (
-    <div className="bg-white/5 p-3 rounded-2xl flex items-center gap-3 hover:bg-white/10 transition border border-white/5 min-w-0">
+    <div className="bg-white/5 p-3 rounded-2xl flex items-center gap-2 hover:bg-white/10 transition border border-white/5 min-w-0">
       <div className="p-1.5 bg-white/10 rounded-full text-white/80 shrink-0">
         <Icon size={18} />
       </div>
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <p className="text-[10px] text-white/50 uppercase tracking-wider truncate">{title}</p>
-        <p className="text-base font-semibold truncate">{value}</p>
+        <p className="text-sm md:text-base font-semibold leading-tight break-words">{value}</p>
       </div>
     </div>
   )
